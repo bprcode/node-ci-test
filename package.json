@@ -7,6 +7,7 @@
     "build": "tsc",
     "nodemon": "nodemon -L source/index.ts",
     "test": "node ./built/index.js & newman run ./test/demo-collection.json && pkill '^node$'",
+    "test-cmd": "start node ./built/index.js & newman run ./test/demo-collection.json && taskkill /im node.exe /F",
     "serve": "node built/index.js",
     "newman": "newman run ./test/demo-collection.json",
     "hi": "echo hi"
