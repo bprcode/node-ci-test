@@ -10,6 +10,7 @@
     "test-cmd": "start node ./built/index.js & newman run ./test/demo-collection.json && taskkill /im node.exe /F",
     "serve": "node built/index.js",
     "newman": "newman run ./test/demo-collection.json",
+    "newmanv": "newman -v",
     "hi": "echo hi"
   },
   "repository": {
@@ -26,6 +27,7 @@
     "@types/express": "^5.0.0",
     "@types/node": "^22.13.1",
     "jest": "^29.7.0",
+    "newman": "6.1.3",
     "nodemon": "^3.1.9",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.3"

@@ -22,7 +22,8 @@ router
     res.status(400).send(req.method+' request rejected')
   })
   .get('/hi', (req: Request, res: Response) => {
-    res.send('Hello! 🐦')
+    // res.send('Hello! 🐦')
+    res.send('Hello! 🐶')
   })
   .get('/count', (req: Request, res: Response) => {
     res.json({ count: mockDb.get('chickenCount') })

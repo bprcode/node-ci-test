@@ -23,7 +23,8 @@ router
     res.status(400).send(req.method + ' request rejected');
 })
     .get('/hi', (req, res) => {
-    res.send('Hello! 🐦');
+    // res.send('Hello! 🐦')
+    res.send('Hello! 🐶');
 })
     .get('/count', (req, res) => {
     res.json({ count: mockDb.get('chickenCount') });
