@@ -4,9 +4,12 @@
   "description": "simple test repo for Node CI workflows",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "tsc -w & nodemon -L built/index.js",
-    "tsc": "tsc -w"
+    "build": "tsc",
+    "nodemon": "nodemon -L source/index.ts",
+    "test": "node ./built/index.js & newman run ./test/demo-collection.json && pkill '^node$'",
+    "serve": "node built/index.js",
+    "newman": "newman run ./test/demo-collection.json",
+    "hi": "echo hi"
   },
   "repository": {
     "type": "git",
@@ -23,6 +26,7 @@
     "@types/node": "^22.13.1",
     "jest": "^29.7.0",
     "nodemon": "^3.1.9",
+    "ts-node": "^10.9.2",
     "typescript": "^5.7.3"
   },
   "dependencies": {

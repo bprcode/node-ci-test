@@ -1,9 +1,11 @@
 import express, { Express, Request, Response } from 'express'
+import greeter from './test-routes'
 const app: Express = express()
 const port: number = 3000
 
 app
   .use(express.static('public'))
+  .use('/', greeter)
   .get('/foo', (req: Request, res: Response) => {
     console.log('foo~')
     res.send('hey foo')
@@ -19,6 +21,9 @@ app
         console.log('async done.')
       }, 5000)
     )
+  })
+  .get('/', (req:Request,res:Response) => {
+    res.send('Index route reached 🐙')
   })
 
 app.listen(port, () => {

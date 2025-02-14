@@ -13,10 +13,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
+const test_routes_1 = __importDefault(require("./test-routes"));
 const app = (0, express_1.default)();
 const port = 3000;
 app
     .use(express_1.default.static('public'))
+    .use('/', test_routes_1.default)
     .get('/foo', (req, res) => {
     console.log('foo~');
     res.send('hey foo');
@@ -30,7 +32,10 @@ app
         res.send('timeout resolved');
         console.log('async done.');
     }, 5000));
-}));
+}))
+    .get('/', (req, res) => {
+    res.send('Index route reached 🐙');
+});
 app.listen(port, () => {
     console.log("Server's up on \x1b[96mhttp://localhost:" + port + '\x1b[39m 🦆');
 });
